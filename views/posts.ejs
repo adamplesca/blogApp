@@ -1,0 +1,22 @@
+<h2>Posts</h2>
+
+<ul>
+  <% posts.forEach(p => { %>
+    <li>
+      <h3><%= p.title %></h3>
+      <!--stored xss-->
+      <p><%- p.content %></p>
+    </li>
+  <% }) %>
+</ul>
+
+<!--placeholder for dom xss-->
+<div id="domOutput"></div>
+<script src="/script.js"></script>
+
+<h2>Create Post</h2>
+<form method="POST" action="/posts/create">
+  <input name="title" placeholder="title">
+  <textarea name="content"></textarea>
+  <button>Create</button>
+</form>
